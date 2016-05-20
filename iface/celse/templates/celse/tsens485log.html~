@@ -1,0 +1,80 @@
+<div align="justify">
+	<span align="left">
+	{% for par in param %}
+	    {% ifequal par.addr 6%}
+	    	<button 
+	    		{% if par.value == 0%} 
+	    				style="background-color:#009900"
+	    		{%endif%}
+	    		id="on_bt" title="ON"> <h1>ON</h1></button>
+	    	<button 
+				{% if par.value == 3%} 
+	    				style="background-color: #FF0000"
+	    		{%endif%}	    		
+	    		id="off_bt" title="OFF"><h1>OFF</h1></button>
+	    {% endifequal %}
+	{% endfor %}
+	</span>
+	<span align="right">
+   {% for par in param %}
+	    {% ifequal par.addr 1%}
+	      <input style="background-color:#FFFFFF; hight=20pt;" id="setpoint_val"  type="text" value="{{par.value}}">
+	    	<button id="inc_val_bt" title="+"><h1>+</h1></button>
+	    	<button id="dec_val_bt" title="-"><h1>-</h1></button>
+	    	<button id="set_val_bt" title="SET"><h1>SET</h1></button>
+	    {% endifequal %}
+	{% endfor %}
+	</span>
+</div>	
+	<br>	
+	
+	<ul class="params">
+		{% for par in param %}
+				
+				{% if par.addr != 1 and par.addr != 6 and par.addr != 3 and par.addr != 7%}
+					<li> {{ par.description }}:<b>{{ par.value }}</b></li>
+				{%endif%}
+			
+				{% ifequal par.addr 3 %}
+					<li> {{ par.description }}: 
+					{% ifequal par.value 0 %}
+						<b>Связь</b>
+				   {%endifequal%}
+  					{% ifequal par.value 1 %}
+						<b style="background-color:#FF0000">Нет связи</b>
+				   {%endifequal%}		
+					</li>
+				{%endifequal%}
+	
+				{% ifequal par.addr 7 %}	
+					<li> {{ par.description }}: 
+					{% ifequal par.value 0 %}
+						<b>Ожидание</b>
+				   {%endifequal%}
+  					{% ifequal par.value 1 %}
+						<b>Открыт</b> (через оборудование)
+				   {%endifequal%}
+  					{% ifequal par.value 2 %}
+						<b>Закрыт</b> (в обход оборудования)
+				   {%endifequal%}		
+					</li>
+				{%endifequal%}	
+  		{% endfor %}
+	</ul>
+	
+	{% load googlecharts %}
+
+{% googlecharts %}
+    {% data переменная "необязательное имя" %} {# (именованный) набор данных #}
+        {% col "тип" "название" %}...{% endcol %} {# формат #}
+        {% col "тип" "название" %}...{% endcol %} {# еще формат #}
+        ...
+    {% enddata %}
+
+    {% options "необязательное имя" %} {# (именованный) набор опций #}
+        ...
+    {% endoptions %}
+
+    {% graph "#id" "данные" "опции" %} {# точка сборки #}
+{% endgooglecharts %}
+	

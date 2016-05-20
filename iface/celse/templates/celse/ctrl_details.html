@@ -1,0 +1,73 @@
+{#templates/ctrl_details.html#}
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+{% load i18n %}
+{% load staticfiles %}
+<html lang="{{ LANGUAGE_CODE }}">
+<!-- <meta HTTP-EQUIV="Refresh" Content="1; URL=http://localhost:8000/"> -->
+<head>
+	<title>Подробная информация о контроллере</title>
+<!-- <script src="jquery-1.12.1.min.js"></script> -->
+	<meta charset="utf-8" />
+	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<!--	<link href="{{ STATIC_URL }}site/css/style.css" rel="stylesheet" media="screen" type="text/css" /> -->
+<!--
+	<script type="text/javascript" src="{% static "jquery-1.12.2.js.js" %}"></script>
+	<script type="text/javascript" src="{% static "jquery-migrate-1.2.1.js" %}"></script> -->
+<!--   	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+ 	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+	<!-- <script src="js_settings.js"></script>	 -->
+	<STYLE>
+		body {
+			background-color: #000000;
+			color: white;
+		}
+		.net_addr{
+			font-size: 8pt;
+			font-family: Arial;
+		}
+		.ctrl_name {
+			font-size: 24pt;
+			font-family: Arial;
+		}
+		.params {
+			background-color: white;
+			color: black;
+			font-size: 16pt;
+			font-family: Arial;
+			width: 50%;
+		}
+		BUTTON {
+			height: 70px;
+			width: auto;
+		}
+		INPUT {
+			height: 70px;
+			font-size: 16pt;
+		}
+	</STYLE>
+</head>
+<body>
+
+
+	{% for ctrl in ctrl %}
+	<h3 class="ctrl_name" align="center">{{ ctrl.description }}</h3>
+	<h3 class="net_addr" id="netAddres" align="right"> адрес:<span id="addr">{{ ctrl.bus_id }}</span> </h3>
+
+	{% if ctrl.online == 1%}
+		{% if ctrl.type != 2%}
+			{% include "celse/tsens485.html" %}
+		{% endif %}
+		{% if ctrl.type == 2%}
+			{% include "celse/inverter.html" %}
+		{% endif %}
+	{%endif%}
+   {% if ctrl.online == 0%}
+		<h1 style="background-color:#FF0000;" align="center">Контроллер не в сети</h1>
+	{%endif%}
+		<input  id="req_bus_id" type="hidden" value="{{ ctrl.bus_id }}">
+	{% endfor %}
+	<br align="center"><button onclick="return location.href = '/'">Главный экран</button>
+
+
+</body></html>

@@ -1,0 +1,130 @@
+
+	{% for par in param %}
+	    {% ifequal par.addr 2%}
+	    	<button 
+	    		{% if par.value == 1%} 
+	    				style="background-color:#009900"
+	    		{%endif%}
+	    		id="on_bt" title="ON"> <h1>ON</h1></button>
+	    	<button 
+				{% if par.value == 0%} 
+	    				style="background-color: #AAAAAA"
+	    		{%endif%}	    		
+	    		id="off_bt" title="OFF"><h1>OFF</h1></button>
+	    	<button 
+				{% if par.value == 4%} 
+	    				style="background-color: #FF0000"
+	    		{%endif%}	    		
+	    		id="off_rst" title="RESET"><h1>RESET</h1></button>
+	
+	    {% endifequal %}
+	{% endfor %}	
+	
+	
+	<br>
+	{% for par in param %}
+		 {% ifequal par.addr 257%}
+			{{ par.description }}: {{ par.value }}.
+	    {% endifequal %}	
+	    <br>
+	    {% ifequal par.addr 4%}
+	      <input id="setpoint_val" type="text" value="{{par.value}}">
+	    	<button id="inc_val_bt" title="+">+</button>
+	    	<button id="dec_val_bt" title="-">-</button>
+	    	<button id="set_val_bt" title="Применить">Применить</button>
+	    {% endifequal %}
+	{% endfor %}
+	
+	{% for par in param %}
+	<ul class="params">
+		 {% if par.addr != 257 and par.addr != 4 and par.addr != 2 and par.addr != 513 %}
+		 		{% if par.addr != 285 %}	
+					<li> {{ par.description }}:
+					{% ifequal par.value 0 %}
+						<b>Нет</b>
+				   {%endifequal%} 
+					{% ifequal par.value 1 %}
+						<b>Превышение тока</b>
+				   {%endifequal%}
+  					{% ifequal par.value 2 %}
+						<b>Превышение напряжения</b>
+				   {%endifequal%}
+  					{% ifequal par.value 3 %}
+						<b>Низкое напряжение</b> 
+				   {%endifequal%}
+  					{% ifequal par.value 4 %}
+						<b>Arm short trip</b> 
+				   {%endifequal%}
+  					{% ifequal par.value 6 %}
+						<b>Перигрев частотника</b> 
+				   {%endifequal%}
+  					{% ifequal par.value 7 %}
+						<b>Electric thermal trip</b> 
+				   {%endifequal%}
+				   {% ifequal par.value 8 %}
+						<b>Внешний останов</b> 
+				   {%endifequal%}
+				   {% ifequal par.value 9 %}
+						<b>Ошибка EEPROM</b> 
+				   {%endifequal%}
+				   {% ifequal par.value 10 %}
+						<b>Ошибка связи</b> 
+				   {%endifequal%}
+				   {% ifequal par.value 11 %}
+						<b>USP trip</b> 
+				   {%endifequal%}
+				   {% ifequal par.value 12 %}
+						<b>GF trip</b> 
+				   {%endifequal%}		
+					</li>
+				{%endif%}
+		 		{% if par.addr == 285 %}	
+			      <li> {{ par.description }}: {{ par.value }}. </li>
+				{%endif%}
+	    {% endif %}
+	</ul>    	
+	{% endfor %}
+	<script type="text/javascript">
+		document.getElementById('inc_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			document.getElementById('setpoint_val').value = String(++sp_value);   
+		}		
+		document.getElementById('dec_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			document.getElementById('setpoint_val').value = String(--sp_value);   
+		}
+		document.getElementById('set_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&setpoint=' + encodeURIComponent(sp_value);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+		document.getElementById('on_bt').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(1);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+		document.getElementById('off_bt').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(0);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+   	document.getElementById('off_rst').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(4);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}		
+	</script>
+		

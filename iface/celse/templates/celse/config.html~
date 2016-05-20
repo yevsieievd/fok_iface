@@ -1,0 +1,71 @@
+<html>
+<head>
+	<style type="text/css">
+<!-- div {
+  display: inline-block;
+  position: Relative;
+  border: 2px solid grey;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div:before,
+div:after {
+  background: white;
+  right: 0px;
+  width: 30px;
+  height: 20%;
+  position: absolute;
+  pointer-events: none;
+}
+div:before {
+  content: '';
+  bottom: 50%;
+  background: url(http://cdn.flaticon.com/png/256/22205.png) no-repeat white;
+  background-size: 20px;
+  background-position: center;
+}
+div:after {
+  content: '';
+  top: 50%;
+  background: url(http://cdn.flaticon.com/png/256/22205.png) no-repeat white;
+  background-size: 20px;
+  transform: rotate(180deg);
+  background-position: center;
+}
+input {
+  height: 80PX;
+  font-size: 50px;
+  outline: 0;
+  border: 0;
+} -->
+	</style>
+</head>
+<!-- <meta HTTP-EQUIV="Refresh" Content="1; URL=http://localhost:8000/"> -->
+<body>
+	<h6 align="right">Сейчас{{ current_date }}.</h6>
+	{% if form.errors %}
+		<p style="color: red;">
+			Исправте следующие ошибки{{ form.errors|pluralize }}
+		</p>	
+	{% endif %}
+	<form action="" method="get">
+	<!-- <div> -->
+		<table>
+			{{ form.as_table }}
+		</table>
+		<input type="submit" value="0тправить">
+	<!-- </div> -->
+	</form>
+	
+<!-- 	<form>
+	{{ param.description }}: <input type="text" name="setpoint" value="{{ param.value }}"> 
+	<button type="submite">Сохранить изменения</button>
+	</form> -->
+	<button onclick="return location.href = '/'">Главный экран</button>
+</body></html>

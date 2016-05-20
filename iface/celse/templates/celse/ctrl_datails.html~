@@ -1,0 +1,31 @@
+<html>
+<!-- <meta HTTP-EQUIV="Refresh" Content="1; URL=http://localhost:8000/"> -->
+<body>
+	<h6 align="right"> Сейчас {{ current_date }}.</h6>
+	{% for t_ctrl in t_ctrl%}
+		
+		<TABLE width="100%" cellpadding="20" cellspacing="20" border="0">
+		<CAPTION align=”top”>{{ t_ctrl.description }}</CAPTION>
+		<TR>
+			{% for ctrl in ctrl %}
+				{% if ctrl.type == t_ctrl.type_id %}
+					<TD {% if ctrl.online == 0 %}
+						bgcolor="#808080"
+					    {% endif %}
+					>
+					<h5>{{ ctrl.description }}, адрес:{{ ctrl.bus_id }} </h5>
+					<ul>
+						{% for param in param %}
+							{% if param.bus_id == ctrl.bus_id%}
+								<li> {{ param.description }}: {{ param.value }}.
+							{% endif %}	
+						{% endfor %}
+					</ul>
+					</TD>
+				{% endif %}
+			{% endfor %}	
+	 	</TR>
+		</TABLE>
+	{% endfor %}	
+</body></html>
+
