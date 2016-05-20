@@ -1,4 +1,4 @@
-{#templates/ctrl_details.html#}
+{#templates/celse/ctrl_details.html#}
 {% block doctype %}<!DOCTYPE html>{% endblock %}
 {% load i18n %}
 {% load staticfiles %}
@@ -8,6 +8,7 @@
 	<title>Подробная информация о контроллере</title>
 <!-- <script src="jquery-1.12.1.min.js"></script> -->
 	<meta charset="utf-8" />
+	<link rel="stylesheet" href="{% static 'css/ctrl_details.css' %}">
 	<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 <!--	<link href="{{ STATIC_URL }}site/css/style.css" rel="stylesheet" media="screen" type="text/css" /> -->
 <!--
@@ -17,35 +18,7 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
  	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 	<!-- <script src="js_settings.js"></script>	 -->
-	<STYLE>
-		body {
-			background-color: #000000;
-			color: white;
-		}
-		.net_addr{
-			font-size: 8pt;
-			font-family: Arial;
-		}
-		.ctrl_name {
-			font-size: 24pt;
-			font-family: Arial;
-		}
-		.params {
-			background-color: white;
-			color: black;
-			font-size: 16pt;
-			font-family: Arial;
-			width: 50%;
-		}
-		BUTTON {
-			height: 70px;
-			width: auto;
-		}
-		INPUT {
-			height: 70px;
-			font-size: 16pt;
-		}
-	</STYLE>
+
 </head>
 <body>
 

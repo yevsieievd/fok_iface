@@ -1,4 +1,5 @@
-{#templates/main.html#}
+{#templates/celse/main.html#}
+{% load staticfiles %}
 {% block doctype %}<!DOCTYPE html>{% endblock %}
 {% load i18n %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -8,10 +9,14 @@
 <meta charset="utf-8" />
 <!-- <meta HTTP-EQUIV="Refresh" Content="10; URL=http://localhost/"> -->
 
+<!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" /> -->
 <!-- <link href="{{ STATIC_URL }}site/css/style.css" rel="stylesheet" media="screen" type="text/css" /> -->
 
-<!--	<script type="text/javascript" src="/javascript/jquery-1.12.2.js.js"></script>	
+<!--	<script type="text/javascript" src="/javascript/jquery-1.12.2.js.js"></script>
 	<script type="text/javascript" src="/javascript/jquery-migrate-1.2.1.js"></script>
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -20,35 +25,10 @@
 <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 <!-- <script src="js_settings.js"></script> -->
 
-	<STYLE>
-		body {
-			background-color: black;
-			color: white;
-		}
-		.ctrl_type{
-			font-size: 20pt;
-			font-family: Arial;
-		}
-		.net_addr{
-			font-size: 8pt;
-			font-family: Arial;
-		}
-		.ctrl_name {
-			font-size: 22pt;
-		}
-		.ctrl_value{
-			font-size: 16pt;
-			color: black;
-		}
-	
-	</STYLE>
-
-
-
 </head>
 <body>
-	
-	{% for t_ctrl in t_ctrl%}	
+
+	{% for t_ctrl in t_ctrl%}
 		<TABLE width="100%" cellpadding="5" cellspacing="0" border="0">
 		<CAPTION class="ctrl_type" align="top">{{ t_ctrl.description }}</CAPTION>
 		<TR>
@@ -60,7 +40,7 @@
 					<button type="submit"
 					{% if ctrl.online == 1 %}
 						{% for param in param %}
-							{% if param.bus_id == ctrl.bus_id %}  
+							{% if param.bus_id == ctrl.bus_id %}
 								{% if param.addr == 7 and param.value == 1 %}
 									style="background-color:#33cc33"
 								{% endif %}
@@ -72,7 +52,7 @@
 								{% endif %}
 								{% if param.addr == 3 and param.value == 1 %}
 									style="background-color:#ff0000"
-								{% endif %}										
+								{% endif %}
 							{% endif %}
 						{% endfor %}
 					{% endif %}
@@ -82,7 +62,7 @@
 					>
 						<p class="ctrl_name">{{ ctrl.description }}</p>
 					{% if ctrl.online == 1 %}
-						{% for param in param %}		
+						{% for param in param %}
 							{% if ctrl.type == 1 or ctrl.type == 0%}
 								{% if param.bus_id == ctrl.bus_id and param.addr == 0 %}
 									<p class="ctrl_value"> <h1> {{ param.value }} C<sup>0</sup><h1></p>
@@ -92,27 +72,27 @@
 								{% if param.bus_id == ctrl.bus_id and param.addr == 257 %}
 									<p class="ctrl_value"> <h1> {{ param.value }} Гц</h1></p>
 								{% endif %}
-							{% endif %}							
+							{% endif %}
 						{% endfor %}
 					{% endif %}
 					{% if ctrl.online == 0 %}
 						<p class="ctrl_value"> <h1> Контроллер не в сети</h1></p>
-					{% endif %}						
+					{% endif %}
 					</button>
-					<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">					
+					<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">
 					</form>
 				<!--	<h6 class="net_addr" align="center">Сетевой адрес:{{ ctrl.bus_id }}</h6>-->
 	<!--					<ul>
-					<input type="button" >			
+					<input type="button" >
 						{% for param in param %}
 							{% if param.bus_id == ctrl.bus_id%}
 								<li> {{ param.description }}: {{ param.value }}.
-							{% endif %}	
+							{% endif %}
 						{% endfor %}
 					</ul> 			 -->
 					</TD>
 				{% endif %}
-			{% endfor %}	
+			{% endfor %}
 	 	</TR>
 		</TABLE>
 	{% endfor %}
@@ -121,6 +101,5 @@
    		location.reload();
 		}
 		setInterval("fresh()",3000);
-	</script>	
+	</script>
 </body></html>
-
