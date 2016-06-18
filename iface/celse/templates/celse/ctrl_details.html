@@ -27,17 +27,20 @@
 	<h3 class="ctrl_name" align="center">{{ ctrl.description }}</h3>
 	<h3 class="net_addr" id="netAddres" align="right"> адрес:<span id="addr">{{ ctrl.bus_id }}</span> </h3>
 
-	{% if ctrl.online == 1%}
-		{% if ctrl.type != 2%}
+
+		{% if ctrl.type == 0 %}
+			{% include "celse/tsens485log.html" %}
+		{% endif %}
+		{% if ctrl.type == 1 %}
 			{% include "celse/tsens485.html" %}
 		{% endif %}
-		{% if ctrl.type == 2%}
+		{% if ctrl.type == 2 %}
 			{% include "celse/inverter.html" %}
 		{% endif %}
-	{%endif%}
-   {% if ctrl.online == 0%}
-		<h1 style="background-color:#FF0000;" align="center">Контроллер не в сети</h1>
-	{%endif%}
+
+   	{% if ctrl.online == 0%}
+			<h1 style="background-color:#FF0000;" align="center">Контроллер не в сети</h1>
+		{%endif%}
 		<input  id="req_bus_id" type="hidden" value="{{ ctrl.bus_id }}">
 	{% endfor %}
 	<br align="center"><button onclick="return location.href = '/'">Главный экран</button>

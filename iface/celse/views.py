@@ -11,8 +11,10 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 import datetime
 from celse import models
+from qsstats import QuerySetStats
+from django.db.models import Avg
+
 #from iface.forms import SetpointForm
-# must be installed !!!! from qsstats import QuerySetStats
 #from django.core.context_processors import request
 
 def main(request):
@@ -21,7 +23,6 @@ def main(request):
     ctrl = models.Ctrls.objects.all()
     param = models.Parametrs.objects.all()
 #    param = models.Parametrs.objects.filter(addr=0 | addr=7 | addr=6 | addr=3 | addr=257)
-#    p_error_ds = float(param[2].value)/float(param[3].value)
     return render_to_response('celse/main.html', locals())
 
 def ctrl_details(request):
@@ -52,6 +53,16 @@ def ctrl_details(request):
                 mode.save()
         ctrl = models.Ctrls.objects.filter(bus_id=req_bus_id)
         param = models.Parametrs.objects.filter(bus_id=req_bus_id)
+        #logparam = models.Paramlog.objects.filter(bus_id=1, addr=0).order_by('time')
+        ##logparam = models.Paramlog.objects.filter(bus_id=1, addr=0).values_list('time', 'value' ).order_by('time')
+        #start_date = logparam.first().time
+        ##end_date = logparam.last().time
+        #end_date = start_date + datetime.timedelta(hours=3)
+        #qsstats = QuerySetStats(logparam, date_field='time', aggregate=Avg('value'))
+        #values = qsstats.time_series(start_date, end_date, interval='minutes', date_field='time')
+
+        values = models.Paramlog.objects.filter(bus_id=req_bus_id, addr=0).values_list('time', 'value' ).order_by('time')
+
         return render_to_response('celse/ctrl_details.html', locals())
     else :
         render_to_response('celse/current_data.html', locals())
@@ -65,7 +76,6 @@ def system_config (request):
         for param in params:
             param.value = float(request.GET['value'])
             param.save()
-#        param.save()
     else:
         param = models.Parametrs.objects.filter(addr=1)[0]
         form = SetpointForm(initial = {'description':  'Температура на входе в чиллер',

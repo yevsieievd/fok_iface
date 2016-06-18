@@ -33,9 +33,9 @@ class Ctrls(models.Model):
 
     class Meta:
         app_label = 'celse'
-        managed = False
+        managed = True
         db_table = 'ctrls'
-        
+
 class TCtrl(models.Model):
     idtable1 = models.IntegerField(primary_key=True)
     type_id = models.IntegerField()
@@ -43,19 +43,17 @@ class TCtrl(models.Model):
 
     class Meta:
         app_label = 'celse'
-        managed = False
+        managed = True
         db_table = 't_ctrl'
-        
+
 class Paramlog(models.Model):
     idparamlog = models.IntegerField(primary_key=True)
     bus_id = models.IntegerField()
     addr = models.IntegerField()
     addr_type = models.IntegerField()
-    value = models.FloatField(blank=True, null=True)
-    time = models.DateTimeField(blank=True, null=True)
+    value = models.FloatField() #blank=True, null=True
+    time = models.DateTimeField() #blank=True, null=True
     class Meta:
         app_label = 'celse'
         managed = True
         db_table = 'paramlog'
-        
-
