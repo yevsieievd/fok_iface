@@ -13,6 +13,7 @@ import datetime
 from celse import models
 from qsstats import QuerySetStats
 from django.db.models import Avg
+from datetime import timedelta
 
 #from iface.forms import SetpointForm
 #from django.core.context_processors import request
@@ -61,7 +62,7 @@ def ctrl_details(request):
         #qsstats = QuerySetStats(logparam, date_field='time', aggregate=Avg('value'))
         #values = qsstats.time_series(start_date, end_date, interval='minutes', date_field='time')
 
-        values = models.Paramlog.objects.filter(bus_id=req_bus_id, addr=0).values_list('time', 'value' ).order_by('time')
+        values = models.Paramlog.objects.filter(bus_id=req_bus_id, addr=0, time__gte=(datetime.date.today() - timedelta(days=-5))).values_list('time', 'value' ).order_by('time')
 
         return render_to_response('celse/ctrl_details.html', locals())
     else :

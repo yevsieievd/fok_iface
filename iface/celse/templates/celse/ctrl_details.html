@@ -28,12 +28,12 @@
 	<h3 class="net_addr" id="netAddres" align="right"> адрес:<span id="addr">{{ ctrl.bus_id }}</span> </h3>
 
 
-		{% if ctrl.type == 0 %}
+		{% if ctrl.type != 2 %}
 			{% include "celse/tsens485log.html" %}
 		{% endif %}
-		{% if ctrl.type == 1 %}
+<!--		{% if ctrl.type == 1 %}
 			{% include "celse/tsens485.html" %}
-		{% endif %}
+		{% endif %} -->
 		{% if ctrl.type == 2 %}
 			{% include "celse/inverter.html" %}
 		{% endif %}

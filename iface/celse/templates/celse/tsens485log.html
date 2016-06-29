@@ -94,3 +94,39 @@
 	{% graph "count_graph" "count" %} {# используем опции по умолчанию #}
 {% endgooglecharts %}
 {%endif%}
+
+
+<script type="text/javascript">
+	document.getElementById('inc_val_bt').onclick = function () {
+		var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+		document.getElementById('setpoint_val').value = String(++sp_value);
+	}
+	document.getElementById('dec_val_bt').onclick = function () {
+		var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+		document.getElementById('setpoint_val').value = String(--sp_value);
+	}
+	document.getElementById('set_val_bt').onclick = function () {
+		var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+		var xhr = new XMLHttpRequest();
+		var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+						+'&setpoint=' + encodeURIComponent(sp_value);
+		xhr.open("GET", "?" + params, false);
+		xhr.send("");
+	}
+	document.getElementById('on_bt').onclick = function () {
+		var xhr = new XMLHttpRequest();
+		var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+						+'&mode=' + encodeURIComponent(0);
+		xhr.open("GET", "?" + params, false);
+		xhr.send("");
+		location.reload();
+	}
+	document.getElementById('off_bt').onclick = function () {
+		var xhr = new XMLHttpRequest();
+		var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+						+'&mode=' + encodeURIComponent(3);
+		xhr.open("GET", "?" + params, false);
+		xhr.send("");
+		location.reload();
+	}
+</script>
