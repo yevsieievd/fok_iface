@@ -1,0 +1,273 @@
+Traceback (most recent call last):
+  File "/home/climatecommander/src/iface/iface/manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ImportError: No module named django.core.managementTraceback (most recent call last):
+  File "/home/climatecommander/src/iface/iface/manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ImportError: No module named django.core.management
+Traceback (most recent call last):
+  File "/home/climatecommander/src/iface/iface/manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ImportError: No module named django.core.management
+Traceback (most recent call last):
+  File "/home/climatecommander/src/iface/iface/manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ImportError: No module named django.core.management
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+/home/climatecommander/.local/lib/python2.7/site-packages/django/template/defaulttags.py:67: UserWarning: A {% csrf_token %} was used in a template, but the context did not provide the value.  This is usually caused by not using RequestContext.
+  "A {% csrf_token %} was used in a template, but the context "
+
+[07/Jul/2016 01:56:33] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:56:33] "GET /static/css/main.css HTTP/1.1" 304 0
+/home/climatecommander/.local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1393: RuntimeWarning: DateTimeField Paramlog.time received a naive datetime (2016-07-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+
+[07/Jul/2016 01:56:38] "GET /ctrl_details/?req_bus_id=5 HTTP/1.1" 200 8957
+[07/Jul/2016 01:56:38] "GET /static/css/ctrl_details.css HTTP/1.1" 304 0
+[07/Jul/2016 01:56:42] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:56:43] "GET /ctrl_details/?req_bus_id=1 HTTP/1.1" 200 13324
+[07/Jul/2016 01:56:47] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:56:48] "GET /ctrl_details/?req_bus_id=6 HTTP/1.1" 200 3515
+[07/Jul/2016 01:56:49] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:56:51] "GET /ctrl_details/?req_bus_id=1 HTTP/1.1" 200 13324
+[07/Jul/2016 01:56:55] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:57:25] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:57:25] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 01:57:32] "GET /ctrl_details/?req_bus_id=5 HTTP/1.1" 200 8957
+[07/Jul/2016 01:57:37] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:57:39] "GET /ctrl_details/?req_bus_id=8 HTTP/1.1" 200 5386
+[07/Jul/2016 01:57:41] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:58:11] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:58:11] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 01:58:42] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:58:42] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 01:59:12] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:59:12] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 01:59:43] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 01:59:43] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 02:00:13] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 02:00:13] "GET /static/css/main.css HTTP/1.1" 304 0
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Not Found: /favicon.ico
+[07/Jul/2016 02:06:58] "GET /favicon.ico HTTP/1.1" 404 2895
+Not Found: /favicon.ico
+[07/Jul/2016 02:06:58] "GET /favicon.ico HTTP/1.1" 404 2895
+/home/climatecommander/.local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1393: RuntimeWarning: DateTimeField Paramlog.time received a naive datetime (2016-07-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+
+[07/Jul/2016 02:07:09] "GET /ctrl_details/?req_bus_id=5 HTTP/1.1" 200 8957
+/home/climatecommander/.local/lib/python2.7/site-packages/django/template/defaulttags.py:67: UserWarning: A {% csrf_token %} was used in a template, but the context did not provide the value.  This is usually caused by not using RequestContext.
+  "A {% csrf_token %} was used in a template, but the context "
+
+[07/Jul/2016 02:07:15] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 02:07:21] "GET /ctrl_details/?req_bus_id=2 HTTP/1.1" 200 12333
+[07/Jul/2016 02:07:33] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 02:07:35] "GET /ctrl_details/?req_bus_id=5 HTTP/1.1" 200 8957
+[07/Jul/2016 02:07:39] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 02:07:45] "GET /ctrl_details/?req_bus_id=4 HTTP/1.1" 200 14866
+[07/Jul/2016 02:07:52] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 02:07:55] "GET /ctrl_details/?req_bus_id=3 HTTP/1.1" 200 16375
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Not Found: /favicon.ico
+[07/Jul/2016 08:17:54] "GET /favicon.ico HTTP/1.1" 404 2895
+Not Found: /favicon.ico
+[07/Jul/2016 08:17:54] "GET /favicon.ico HTTP/1.1" 404 2895
+/home/climatecommander/.local/lib/python2.7/site-packages/django/template/defaulttags.py:67: UserWarning: A {% csrf_token %} was used in a template, but the context did not provide the value.  This is usually caused by not using RequestContext.
+  "A {% csrf_token %} was used in a template, but the context "
+
+[07/Jul/2016 08:17:56] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:17:56] "GET /static/css/main.css HTTP/1.1" 304 0
+/home/climatecommander/.local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1393: RuntimeWarning: DateTimeField Paramlog.time received a naive datetime (2016-07-04 00:00:00) while time zone support is active.
+  RuntimeWarning)
+
+[07/Jul/2016 08:17:59] "GET /ctrl_details/?req_bus_id=8 HTTP/1.1" 200 5386
+[07/Jul/2016 08:17:59] "GET /static/css/ctrl_details.css HTTP/1.1" 304 0
+[07/Jul/2016 08:18:01] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:18:02] "GET /ctrl_details/?req_bus_id=5 HTTP/1.1" 200 8957
+[07/Jul/2016 08:18:07] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:18:37] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:18:37] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:19:07] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:19:07] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:19:38] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:19:38] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:20:08] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:20:08] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:20:38] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:20:38] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:21:09] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:21:09] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:21:39] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:21:40] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:22:10] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:22:10] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:22:41] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:22:41] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:23:11] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:23:11] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:23:42] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:23:42] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:24:12] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:24:12] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:24:43] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:24:43] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:25:13] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:25:13] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:25:44] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:25:44] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:26:14] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:26:14] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:26:44] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:26:44] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:27:15] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:27:15] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:27:45] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:27:45] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:28:16] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:28:16] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:28:47] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:28:47] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:29:17] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:29:17] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:29:47] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:29:48] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:30:18] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:30:18] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:30:48] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:30:48] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:31:19] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:31:19] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:31:49] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:31:49] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:32:20] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:32:20] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:32:50] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:32:50] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:33:20] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:33:20] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:33:51] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:33:51] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:34:21] "GET / HTTP/1.1" 200 42010
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Not Found: /favicon.ico
+[07/Jul/2016 08:43:26] "GET /favicon.ico HTTP/1.1" 404 2895
+Not Found: /favicon.ico
+[07/Jul/2016 08:43:26] "GET /favicon.ico HTTP/1.1" 404 2895
+/home/climatecommander/.local/lib/python2.7/site-packages/django/template/defaulttags.py:67: UserWarning: A {% csrf_token %} was used in a template, but the context did not provide the value.  This is usually caused by not using RequestContext.
+  "A {% csrf_token %} was used in a template, but the context "
+
+[07/Jul/2016 08:43:28] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:43:58] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:43:58] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:44:29] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:44:29] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:45:00] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:45:00] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:45:30] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:45:31] "GET /static/css/main.css HTTP/1.1" 304 0
+[07/Jul/2016 08:46:01] "GET / HTTP/1.1" 200 42010
+[07/Jul/2016 08:46:01] "GET /static/css/main.css HTTP/1.1" 304 0
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
+/home/climatecommander/src/iface/iface/celse/urls.py:24: RemovedInDjango110Warning: Support for string view arguments to url() is deprecated and will be removed in Django 1.10 (got scripts). Pass the callable instead.
+  url(r'^scripts/([^/]+)$','scripts'),
+
+/home/climatecommander/src/iface/iface/celse/urls.py:28: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+  url(r'^admin/', include(admin.site.urls)),
+
+Error: That port is already in use.
