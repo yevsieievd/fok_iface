@@ -1,44 +1,34 @@
 
 {% if ctrl.online == 1%}
-	<TABLE width="100%" cellpadding="2" cellspacing="0" border="0">
-	<TR>
+<div align="justify">
+	<span align="left">
 	{% for par in param %}
 	    {% ifequal par.addr 6%}
-				<TD align="center">
 	    	<button
 	    		{% if par.value == 0%}
 	    				style="background-color:#009900"
 	    		{%endif%}
 	    		id="on_bt" title="ON"> <h2>ON</h2></button>
-				</TD>
-				<TD align="center">
 	    	<button
 				{% if par.value == 3%}
 	    				style="background-color: #FF0000"
 	    		{%endif%}
 	    		id="off_bt" title="OFF"><h2>OFF</h2></button>
-				</TD>
 	    {% endifequal %}
 	{% endfor %}
+	</span>
+	<span align="right">
    {% for par in param %}
 	    {% ifequal par.addr 1%}
-				<TD align="center">
-	      <input style="background-color:#FFFFFF; hight=16pt;" id="setpoint_val"  type="text" value="{{par.value}}">
-				</TD>
-				<TD align="center">
+	      <input style="background-color:#FFFFFF; hight=18pt;" id="setpoint_val"  type="text" value="{{par.value}}">
 	    	<button id="inc_val_bt" title="+"><h2>+</h2></button>
-				</TD>
-				<TD align="center">
 	    	<button id="dec_val_bt" title="-"><h2>-</h2></button>
-				</TD>
-				<TD align="center">
 	    	<button id="set_val_bt" title="SET"><h2>SET</h2></button>
-				</TD>
 	    {% endifequal %}
 	{% endfor %}
-	</TR>
-	</TABLE>
-
+	</span>
+</div>
+	<br>
 
 	<ul class="params">
 		{% for par in param %}

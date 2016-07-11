@@ -24,8 +24,8 @@
 
 
 	{% for ctrl in ctrl %}
-	<h3 class="ctrl_name" align="center">{{ ctrl.description }}</h3>
-	<h3 class="net_addr" id="netAddres" align="right"> адрес:<span id="addr">{{ ctrl.bus_id }}</span> </h3>
+	<h2 class="ctrl_name" align="center">{{ ctrl.description }}
+	<span id="addr" class="net_addr" align="right"> адрес:{{ ctrl.bus_id }}</span> </h2>
 
 
 		{% if ctrl.type != 2 %}

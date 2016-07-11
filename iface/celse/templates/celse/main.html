@@ -29,7 +29,7 @@
 <body>
 
 	{% for t_ctrl in t_ctrl%}
-		<TABLE width="100%" cellpadding="5" cellspacing="0" border="0">
+		<TABLE width="100%" cellpadding="2" cellspacing="0" border="0">
 		<CAPTION class="ctrl_type" align="top">{{ t_ctrl.description }}</CAPTION>
 		<TR>
 			{% for ctrl in ctrl %}
@@ -65,18 +65,18 @@
 						{% for param in param %}
 							{% if ctrl.type == 1 or ctrl.type == 0%}
 								{% if param.bus_id == ctrl.bus_id and param.addr == 0 %}
-									<p class="ctrl_value"> <h1> {{ param.value }} C<sup>0</sup><h1></p>
+									<p class="ctrl_value"> <h2> {{ param.value }} C<sup>0</sup></h2></p>
 								{% endif %}
 							{% endif %}
 							{% if ctrl.type == 2%}
 								{% if param.bus_id == ctrl.bus_id and param.addr == 257 %}
-									<p class="ctrl_value"> <h1> {{ param.value }} Гц</h1></p>
+									<p class="ctrl_value"> <h2> {{ param.value }} Гц</h2></p>
 								{% endif %}
 							{% endif %}
 						{% endfor %}
 					{% endif %}
 					{% if ctrl.online == 0 %}
-						<p class="ctrl_value"> <h1> Контроллер не в сети</h1></p>
+						<p class="ctrl_value"> <h2> Контроллер не в сети</h2></p>
 					{% endif %}
 					</button>
 					<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">
@@ -100,6 +100,6 @@
 		function fresh() {
    		location.reload();
 		}
-		setInterval("fresh()",30000);
+		setInterval("fresh()",10000);
 	</script>
 </body></html>
