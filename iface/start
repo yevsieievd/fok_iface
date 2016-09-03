@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /home/src/iface
+source iface_env/bin/activate
+cd iface
+gunicorn iface.wsgi:application --pythonpath iface --bind localhost:8001

@@ -1,0 +1,19 @@
+body {
+			background-color: black;
+			color: white;
+		}
+.ctrl_type{
+			font-size: 20pt;
+			font-family: Arial;
+		}
+.net_addr{
+			font-size: 8pt;
+			font-family: Arial;
+		}
+.ctrl_name {
+			font-size: 22pt;
+		}
+.ctrl_value{
+			font-size: 16pt;
+			color: black;
+		}

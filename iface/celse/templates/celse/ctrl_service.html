@@ -1,0 +1,144 @@
+{#templates/celse/ctrl_internals.html#}
+{% load staticfiles %}
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+
+
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+  <h1>Сервисные параметры фанкойла {{req_bus_id}}:</h1>
+<!--  <span align="left">
+	    	<button
+	    		{% if fan_hc == 0%}
+	    				style="background-color:#0000FF"
+	    		{%endif%}
+	    		id="cooling_bt" title="Охлаждение"> <h1>Охлаждение</h1></button>
+	    	<button
+				  {% if fan_hc == 1%}
+	    				style="background-color: #FF8000"
+	    		{%endif%}
+	    		id="heating_bt" title="Обогрев"><h1>Обогрев</h1></button>
+	</span>
+	<br>
+	<br>
+-->
+  <h1>Коррекция уставки температуры для охлаждения:</h1>
+  <table>
+    <tr>
+      <td>
+        <input style="background-color:#FFFFFF; font-size: 28pt; width: 75pt;" id="corr_sum_val"  type="text" value="{{t_corr_sam}}">
+      </td>
+      <td>
+        <button id="inc_sum_val_bt" title="+"><h1>+</h1></button>
+      </td>
+      <td>
+        <button id="dec_sum_val_bt" title="-"><h1>-</h1></button>
+      </td>
+      <td>
+        <button id="set_sum_val_bt" title="SET"><h1>Сохр.</h1></button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <h1>Коррекция уставки температуры для обогрева:</h1>
+  <table>
+    <tr>
+      <td>
+        <input style="background-color:#FFFFFF; font-size: 28pt; width: 75pt;"  hight=40pt; id="corr_win_val"  type="text" value="{{t_corr_win}}">
+      </td>
+      <td>
+        <button id="inc_win_val_bt" title="+"><h1>+</h1></button>
+      </td>
+      <td>
+        <button id="dec_win_val_bt" title="-"><h1>-</h1></button>
+      </td>
+      <td>
+        <button id="set_win_val_bt" title="SET"><h1>Сохр.</h1></button>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+
+  <button id="return_bt" title="ON" align="right"> <h3>Назад</h3></button>
+
+  <script type="text/javascript">
+/*    document.getElementById('cooling_bt').onclick = function () {
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{req_bus_id}})
+              +'&fan_hc=' + encodeURIComponent(0);
+      xhr.open("GET", "?" + params, false);
+      xhr.send("");
+      location.reload();
+    }
+    document.getElementById('heating_bt').onclick = function () {
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{req_bus_id}})
+              +'&fan_hc=' + encodeURIComponent(1);
+      xhr.open("GET", "?" + params, false);
+      xhr.send("");
+      location.reload();
+    }
+*/
+    document.getElementById('inc_sum_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_sum_val').value);
+      if (sp_value < 10) {
+        ++sp_value ;
+        document.getElementById('corr_sum_val').value = String(sp_value);
+      }
+    }
+    document.getElementById('dec_sum_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_sum_val').value);
+      if (sp_value >-10 ) {
+        --sp_value;
+        document.getElementById('corr_sum_val').value = String(sp_value);
+      }
+    }
+    document.getElementById('set_sum_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_sum_val').value);
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{req_bus_id}})
+              +'&t_corr_sam=' + encodeURIComponent(sp_value);
+      xhr.open("GET", "?" + params, false);
+      xhr.send("");
+    }
+    document.getElementById('inc_win_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_win_val').value);
+      if (sp_value < 10) {
+        ++sp_value ;
+        document.getElementById('corr_win_val').value = String(sp_value);
+      }
+    }
+    document.getElementById('dec_win_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_win_val').value);
+      if (sp_value >-10 ) {
+        --sp_value;
+        document.getElementById('corr_win_val').value = String(sp_value);
+      }
+    }
+    document.getElementById('set_win_val_bt').onclick = function () {
+      var sp_value = parseFloat(document.getElementById('corr_win_val').value);
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{req_bus_id}})
+              +'&t_corr_win=' + encodeURIComponent(sp_value);
+      xhr.open("GET", "?" + params, false);
+      xhr.send("");
+    }
+    document.getElementById('return_bt').onclick = function () {
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{ req_bus_id }});
+    document.location.href = "/ctrl_details/?" + params;
+    }
+  </script>
+	<script type="text/javascript">
+		function fresh() {
+   		location.reload();
+		}
+		setInterval("fresh()",30000);
+	</script>
+</body></html>

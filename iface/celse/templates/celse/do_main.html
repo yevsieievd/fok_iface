@@ -1,0 +1,84 @@
+{#templates/celse/do_main.html#}
+{% load staticfiles %}
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+
+<meta charset="utf-8" />
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+
+	<button id="main_bt" title="ON" align="right"> <h3>На страницу<br>Кондиционирование</h3></button>
+	<script type="text/javascript">
+		document.getElementById('main_bt').onclick = function () {
+			document.location.href = "/";
+		}
+	</script>
+
+	{% for ctrl in ctrls%}
+
+		<TABLE width="100%" cellpadding="4" cellspacing="0" border="0">
+		<CAPTION class="ctrl_type" align="top">{{ ctrl.description }}, адрес: {{ctrl.bus_id}}.</CAPTION>
+			{% for param in params %}
+
+						{% if param.bus_id == ctrl.bus_id %}
+							{%if param.addr < 8%}
+							{%if param.addr == 0 or param.addr == 4 or param.addr == 8%}
+								<TR>
+							{%endif%}
+							<TD align="center">
+								<button id=do_main_{{forloop.counter}}
+								{%if param.value == 1 and ctrl.online == 1%}
+										style="background-color: #33cc33"
+								{%endif%}
+								{%if ctrl.online == 0%}
+									style="background-color: #FF0000"
+								{%endif%}
+
+								><h2>{{param.description}}</h2>
+								</button>
+								<script type="text/javascript">
+								document.getElementById('do_main_{{forloop.counter}}').onclick = function () {
+									var xhr = new XMLHttpRequest();
+									{% if param.value == 0%}
+									var params = 'req_bus_id='+encodeURIComponent({{param.bus_id}})
+													+'&addr=' + encodeURIComponent({{param.addr}})
+													+'&value=' + encodeURIComponent(1);
+									{%endif%}
+									{% if param.value == 1%}
+									var params = 'req_bus_id='+encodeURIComponent({{ param.bus_id }})
+													+'&addr=' + encodeURIComponent({{param.addr}})
+													+'&value=' + encodeURIComponent(0);
+									{%endif%}
+									xhr.open("GET", "?" + params, false);
+									xhr.send("");
+									location.reload();
+								}
+								</script>
+
+							</TD>
+							{%if param.addr == 3 or param.addr == 7 or param.addr == 11%}
+								</TR>
+							{%endif%}
+
+							{%endif%}
+						{% endif %}
+
+			{% endfor %}
+
+		</TABLE>
+		<br>
+		<br>
+		<br>
+	{% endfor %}
+	<script type="text/javascript">
+		function fresh() {
+   		location.reload();
+		}
+		setInterval("fresh()",10000);
+	</script>
+</body></html>

@@ -1,0 +1,61 @@
+<form  action="/ctrl_details/" method="get">
+
+<button id=main_bt
+{% if ctrl.online == 1 %}
+
+  {% for param in param %}
+    {% if param.bus_id == ctrl.bus_id %}
+      {% if param.addr == 6 and param.value == 1 %}
+        style="background-color:#ff0000"
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% for param in param %}
+    {% if param.bus_id == ctrl.bus_id %}
+      {% if param.addr == 1 and param.value == 1 %}
+        {%if fun_hc == 0%}
+          style="background-color:#80aaff"
+        {%endif%}
+        {%if fun_hc == 1%}
+          style="background-color:#ffcc66"
+        {%endif%}
+      {% endif %}
+      {% if param.addr == 1 and param.value == 2 %}
+        style="background-color:#33cc33"
+      {% endif %}
+      {% if param.addr == 1 and param.value == 0 %}
+        style="background-color:#808080"
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if ctrl.online == 0 %}
+  style="background-color:#ff0000"
+{% endif %}
+>
+<p class="ctrl_name">{{ ctrl.description }}</p>
+{% if ctrl.online == 1 %}
+{% for par in param %}
+  {% if par.bus_id == ctrl.bus_id and par.addr == 6 and par.value == 0%}
+    {% for param in param %}
+      {% if param.bus_id == ctrl.bus_id and param.addr == 7 %}
+          <p class="ctrl_value"> <h1> {{ param.value }} C<sup>0</sup></h1></p>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if par.bus_id == ctrl.bus_id and par.addr == 6 and par.value == 1%}
+      <p class="ctrl_value"> <h1>Ошибка<br>датчика температуры!</h1></p>
+  {% endif %}
+{% endfor %}
+  {% for param in param %}
+    {% if param.bus_id == ctrl.bus_id and param.addr == 10 %}
+      <p class="ctrl_value"> <h4>Скорость {{ param.value }}</h4></p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if ctrl.online == 0 %}
+  <p class="ctrl_value"> <h1>  Не в сети</h1></p>
+{% endif %}
+</button>
+<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">
+</form>

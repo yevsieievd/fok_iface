@@ -1,0 +1,41 @@
+<form  action="/ctrl_details/" method="get">{% csrf_token %}
+
+<button id=main_bt
+{% if ctrl.online == 1 %}
+  {% for param in param %}
+    {% if param.bus_id == ctrl.bus_id %}
+      {% if param.addr == 7 and param.value == 1 %}
+        style="background-color:#33cc33"
+      {% endif %}
+      {% if param.addr == 7 and param.value == 2 %}
+        style="background-color:#ffcc00"
+      {% endif %}
+      {% if param.addr == 6 and param.value == 3 %}
+        style="background-color:#808080"
+      {% endif %}
+      {% if param.addr == 3 and param.value == 1 %}
+        style="background-color:#ff0000"
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if ctrl.online == 0 %}
+  style="background-color:#ff0000"
+{% endif %}
+>
+  <p class="ctrl_name">{{ ctrl.description }}</p>
+{% if ctrl.online == 1 %}
+  {% for param in param %}
+    {% if ctrl.type == 1 or ctrl.type == 0%}
+      {% if param.bus_id == ctrl.bus_id and param.addr == 0 %}
+        <p class="ctrl_value"> <h1> {{ param.value }} C<sup>0</sup><h1></p>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if ctrl.online == 0 %}
+  <p class="ctrl_value"> <h1> Контроллер не в сети</h1></p>
+{% endif %}
+</button>
+<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">
+</form>

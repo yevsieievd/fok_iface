@@ -1,0 +1,27 @@
+body {
+  background-color: #000000;
+  color: white;
+}
+.net_addr{
+  font-size: 8pt;
+  font-family: Arial;
+}
+.ctrl_name {
+  font-size: 24pt;
+  font-family: Arial;
+}
+.params {
+  background-color: white;
+  color: black;
+  font-size: 16pt;
+  font-family: Arial;
+  width: 50%;
+}
+BUTTON {
+  height: 70px;
+  width: auto;
+}
+INPUT {
+  height: 70px;
+  font-size: 16pt;
+}

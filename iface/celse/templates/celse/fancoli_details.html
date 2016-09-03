@@ -1,0 +1,194 @@
+<div align="justify">
+
+	<span align="right">
+				<button id="params_bt" title="ON" align="right"> <h3>Параметры</h3></button>
+				<script type="text/javascript">
+					document.getElementById('params_bt').onclick = function () {
+						var xhr = new XMLHttpRequest();
+						var params = 'req_bus_id='+encodeURIComponent({{ ctrl.bus_id }});
+						document.location.href = "/ctrl_internals/?" + params;
+					}
+				</script>
+				<button id="service_bt" title="AUTO" align="right"><h3>Сервис</h3></button>
+				<script type="text/javascript">
+					document.getElementById('service_bt').onclick = function () {
+						var xhr = new XMLHttpRequest();
+						var params = 'req_bus_id='+encodeURIComponent({{ ctrl.bus_id }});
+						document.location.href = "/ctrl_service/?" + params;
+					}
+				</script>
+	</span>
+	<br>
+	<span align="left">
+	    	<button
+	    		{% if ctrl_mode == 2%}
+	    				style="background-color:#33cc33"
+	    		{%endif%}
+	    		id="manual_bt" title="Ручной"> <h1>Ручной</h1></button>
+	    	<button
+				  {% if ctrl_mode == 1%}
+						style="background-color:#FF8000"
+						{%if fun_hc == 0%}
+	          	style="background-color:#0000FF"
+	        	{%endif%}
+	        	{%if fun_hc == 1%}
+	          	style="background-color:#FF8000"
+	        	{%endif%}
+	    		{%endif%}
+	    		id="auto_bt" title="Автоматический"><h1>Автоматический</h1></button>
+				<button
+						{% if ctrl_mode == 0%}
+								style="background-color: #808080"
+						{%endif%}
+						id="off_bt" title="Выкл."><h1>Выкл.</h1></button>
+	</span>
+
+	{#% if ctrl_mode == 0 or ctrl_mode == 1%#}
+		<span align="right">
+		 {% for par in param %}
+				{% ifequal par.addr 0%}
+					<h1>Уставка температуры:</h1>
+					<table>
+						<tr>
+							<td>
+								<input style="background-color:#FFFFFF; hight=20pt;" id="setpoint_val"  type="text" value="{{par.value}}">
+							</td>
+							<td>
+								<button id="inc_val_bt" title="+"><h1>+</h1></button>
+							</td>
+							<td>
+								<button id="dec_val_bt" title="-"><h1>-</h1></button>
+							</td>
+							<td>
+								<button id="set_val_bt" title="SET"><h1>Сохр.</h1></button>
+							</td>
+						</tr>
+					</table>
+
+
+				{% endifequal %}
+
+
+				{% ifequal par.addr 7%}
+					<h1>Текущая температура: {{par.value}} C<sup>0</sup></h1>
+
+				{% endifequal %}
+		{% endfor %}
+		<script type="text/javascript">
+		</script>
+		</span>
+	{#%endif%#}
+
+	{% if ctrl_mode == 2%}
+		<TABLE width="40%" cellpadding="0" cellspacing="0" border="0">
+			<TR>
+			<TD><H1>Текущая скорость: </H1></TD>
+			<TD>
+			<button id="speed1" title="1"
+				{% for par in param %}
+					{% if par.addr == 10 and par.value == 1%}
+						style="background-color:#808080"
+					{% endif %}
+				{% endfor %}
+			><h1>1</h1></button>
+			</TD>
+			<TD>
+			<button id="speed2" title="2"
+				{% for par in param %}
+					{% if par.addr == 10 and par.value == 2%}
+						style="background-color:#808080"
+					{% endif %}
+				{% endfor %}
+			><h1>2</h1></button>
+			</TD>
+			<TD>
+			<button id="speed3" title="3"
+				{% for par in param %}
+					{% if par.addr == 10 and par.value == 3%}
+						style="background-color:#808080"
+					{% endif %}
+				{% endfor %}
+			><h1>3</h1></button>
+			</TD>
+		 </TR>
+	  </TABLE>
+		<script type="text/javascript">
+			document.getElementById('speed1').onclick = function () {
+				var xhr = new XMLHttpRequest();
+				var params = 'req_bus_id='+encodeURIComponent({{ ctrl.bus_id }})
+								+'&speed=' + encodeURIComponent(1);
+				xhr.open("GET", "?" + params, false);
+				xhr.send("");
+				location.reload();
+			}
+			document.getElementById('speed2').onclick = function () {
+				var xhr = new XMLHttpRequest();
+				var params = 'req_bus_id='+encodeURIComponent({{ ctrl.bus_id }})
+								+'&speed=' + encodeURIComponent(2);
+				xhr.open("GET", "?" + params, false);
+				xhr.send("");
+				location.reload();
+			}
+			document.getElementById('speed3').onclick = function () {
+				var xhr = new XMLHttpRequest();
+				var params = 'req_bus_id='+encodeURIComponent({{ ctrl.bus_id }})
+								+'&speed=' + encodeURIComponent(3);
+				xhr.open("GET", "?" + params, false);
+				xhr.send("");
+				location.reload();
+			}
+		</script>
+
+	{%endif%}
+
+
+	<script type="text/javascript">
+		document.getElementById('inc_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			if (sp_value < 40) {
+				++sp_value ;
+				document.getElementById('setpoint_val').value = String(sp_value);
+			}
+		}
+		document.getElementById('dec_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			if (sp_value >12 ) {
+				--sp_value;
+				document.getElementById('setpoint_val').value = String(sp_value);
+			}
+		}
+		document.getElementById('set_val_bt').onclick = function () {
+			var sp_value = parseFloat(document.getElementById('setpoint_val').value);
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&setpoint=' + encodeURIComponent(sp_value);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+		}
+
+
+		document.getElementById('manual_bt').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(2);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+		document.getElementById('auto_bt').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(1);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+		document.getElementById('off_bt').onclick = function () {
+			var xhr = new XMLHttpRequest();
+			var params = 'req_bus_id='+encodeURIComponent(document.getElementById("req_bus_id").value)
+							+'&mode=' + encodeURIComponent(0);
+			xhr.open("GET", "?" + params, false);
+			xhr.send("");
+			location.reload();
+		}
+	</script>

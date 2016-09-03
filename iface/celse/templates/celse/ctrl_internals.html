@@ -1,0 +1,52 @@
+{#templates/celse/ctrl_internals.html#}
+{% load staticfiles %}
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+
+
+<meta charset="utf-8" />
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+  <h1>Служебные параметры фанкойла {{req_bus_id}}: </h1>
+  <ul class="params">
+  <TABLE class="params" width="40%" cellpadding="5" cellspacing="0" border="0">
+  {%for parametr in parametrs%}
+
+    {% ifequal parametr.addr 6 %}
+      <TR><TD> {{ parametr.description }}:</TD>
+      {% ifequal parametr.value 0 %}
+        <TD>Норма</TD>
+       {%endifequal%}
+        {% ifequal parametr.value 1 %}
+        <TD>Отсутствует</TD>
+       {%endifequal%}
+     </TR>
+    {%endifequal%}
+    {%if parametr.addr == 8 or parametr.addr == 9 %}
+        <TR><TD> {{ parametr.description }}:</TD><TD><b>{{ parametr.value }}</b></TD></TR>
+    {%endif%}
+
+  {%endfor%}
+  </TABLE>
+  </ul>
+
+
+  <button id="return_bt" title="ON" align="right"> <h3>Назад</h3></button>
+  <script type="text/javascript">
+    document.getElementById('return_bt').onclick = function () {
+      var xhr = new XMLHttpRequest();
+      var params = 'req_bus_id='+encodeURIComponent({{ req_bus_id }});
+    document.location.href = "/ctrl_details/?" + params;
+    }
+  </script>
+	<script type="text/javascript">
+		function fresh() {
+   		location.reload();
+		}
+		setInterval("fresh()",30000);
+	</script>
+</body></html>
