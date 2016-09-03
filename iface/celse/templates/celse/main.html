@@ -27,79 +27,57 @@
 
 </head>
 <body>
+	<button id="do_main_bt" title="ON" align="right"> <h3>На страницу<br>Вентиляция</h3></button>
+	<script type="text/javascript">
+		document.getElementById('do_main_bt').onclick = function () {
+			document.location.href = "/do_main/";
+		}
+	</script>
+	<button id="srv_main_bt" title="ON" align="right"> <h3>На страницу<br>Сервисные параметры системы</h3></button>
+	<script type="text/javascript">
+		document.getElementById('srv_main_bt').onclick = function () {
+			document.location.href = "/srv_main/";
+		}
+	</script>
 
 	{% for t_ctrl in t_ctrl%}
+		{%if t_ctrl.type_id == 3%}
 		<TABLE width="100%" cellpadding="5" cellspacing="0" border="0">
 		<CAPTION class="ctrl_type" align="top">{{ t_ctrl.description }}</CAPTION>
-		<TR>
 			{% for ctrl in ctrl %}
-				{% if ctrl.type == t_ctrl.type_id %}
-					<TD align="center">
-					<form  action="/ctrl_details/" method="get">{% csrf_token %}
-<br>
-					<button type="submit"
-					{% if ctrl.online == 1 %}
-						{% for param in param %}
-							{% if param.bus_id == ctrl.bus_id %}
-								{% if param.addr == 7 and param.value == 1 %}
-									style="background-color:#33cc33"
+				{%if forloop.counter == 0 or forloop.counter == 5 or forloop.counter == 9%}
+					<TR>
+				{%endif%}
+
+						{% if ctrl.type == t_ctrl.type_id %}
+							<TD align="center">
+								{% if ctrl.type == 0 %}
+								{% include "celse/tsens485main.html" %}
 								{% endif %}
-								{% if param.addr == 7 and param.value == 2 %}
-									style="background-color:#ffcc00"
+								{% if ctrl.type == 1 %}
+								{% include "celse/tsens485main.html" %}
 								{% endif %}
-								{% if param.addr == 6 and param.value == 3 %}
-									style="background-color:#808080"
+								{% if ctrl.type == 2 %}
+								{% include "celse/inverter_main.html" %}
 								{% endif %}
-								{% if param.addr == 3 and param.value == 1 %}
-									style="background-color:#ff0000"
+								{% if ctrl.type == 3 %}
+								{% include "celse/fancoli_main.html" %}
 								{% endif %}
-							{% endif %}
-						{% endfor %}
-					{% endif %}
-					{% if ctrl.online == 0 %}
-						style="background-color:#ff0000"
-					{% endif %}
-					>
-						<p class="ctrl_name">{{ ctrl.description }}</p>
-					{% if ctrl.online == 1 %}
-						{% for param in param %}
-							{% if ctrl.type == 1 or ctrl.type == 0%}
-								{% if param.bus_id == ctrl.bus_id and param.addr == 0 %}
-									<p class="ctrl_value"> <h1> {{ param.value }} C<sup>0</sup><h1></p>
-								{% endif %}
-							{% endif %}
-							{% if ctrl.type == 2%}
-								{% if param.bus_id == ctrl.bus_id and param.addr == 257 %}
-									<p class="ctrl_value"> <h1> {{ param.value }} Гц</h1></p>
-								{% endif %}
-							{% endif %}
-						{% endfor %}
-					{% endif %}
-					{% if ctrl.online == 0 %}
-						<p class="ctrl_value"> <h1> Контроллер не в сети</h1></p>
-					{% endif %}
-					</button>
-					<input type="hidden" name="req_bus_id" value="{{ctrl.bus_id}}">
-					</form>
-				<!--	<h6 class="net_addr" align="center">Сетевой адрес:{{ ctrl.bus_id }}</h6>-->
-	<!--					<ul>
-					<input type="button" >
-						{% for param in param %}
-							{% if param.bus_id == ctrl.bus_id%}
-								<li> {{ param.description }}: {{ param.value }}.
-							{% endif %}
-						{% endfor %}
-					</ul> 			 -->
-					</TD>
-				{% endif %}
+							</TD>
+						{% endif %}
+
+				{%if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12%}
+					</TR>
+				{%endif%}
 			{% endfor %}
-	 	</TR>
+
 		</TABLE>
+		{%endif%}
 	{% endfor %}
 	<script type="text/javascript">
 		function fresh() {
    		location.reload();
 		}
-		setInterval("fresh()",3000);
+		setInterval("fresh()",10000);
 	</script>
 </body></html>

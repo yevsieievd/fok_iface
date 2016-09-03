@@ -2,6 +2,15 @@ body {
 			background-color: black;
 			color: white;
 		}
+h1 {
+		font-size: 16pt;
+		font-family: Arial;
+		}
+h2 {
+		font-size: 16pt;
+		font-family: Arial;
+		}
+
 .ctrl_type{
 			font-size: 20pt;
 			font-family: Arial;

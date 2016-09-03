@@ -24,8 +24,13 @@ urlpatterns = patterns('',
     url(r'^scripts/([^/]+)$','scripts'),
     url(r'^$', views.main),
     url(r'^ctrl_details/$', views.ctrl_details),
-    url(r'^config/$', views.system_config),
-    url(r'^admin/', include(admin.site.urls)),
+#    url(r'^config/$', views.system_config),
+    url(r'^ctrl_internals/$', views.ctrl_internals),
+    url(r'^ctrl_service/$', views.ctrl_service),
+    url(r'^do_main/$', views.do_main),
+    url(r'^srv_main/$', views.srv_main),
+
+#    url(r'^admin/', include(admin.site.urls)),
 
 
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

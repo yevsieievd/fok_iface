@@ -18,32 +18,37 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
  	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 	<!-- <script src="js_settings.js"></script>	 -->
-
+	<script type="text/javascript">
+		function fresh() {
+   		location.reload();
+		}
+		setInterval("fresh()",30000);
+	</script>
 </head>
 <body>
 
 
-	{% for ctrl in ctrl %}
+	{#% for ctrl in ctrl %#}
 	<h3 class="ctrl_name" align="center">{{ ctrl.description }}</h3>
 	<h3 class="net_addr" id="netAddres" align="right"> адрес:<span id="addr">{{ ctrl.bus_id }}</span> </h3>
 
 
-		{% if ctrl.type != 2 %}
+		{% if ctrl.type == 0 or ctrl.type == 1 %}
 			{% include "celse/tsens485log.html" %}
 		{% endif %}
-<!--		{% if ctrl.type == 1 %}
-			{% include "celse/tsens485.html" %}
-		{% endif %} -->
 		{% if ctrl.type == 2 %}
 			{% include "celse/inverter.html" %}
+		{% endif %}
+		{% if ctrl.type == 3 %}
+			{% include "celse/fancoli_details.html" %}
 		{% endif %}
 
    	{% if ctrl.online == 0%}
 			<h1 style="background-color:#FF0000;" align="center">Контроллер не в сети</h1>
 		{%endif%}
 		<input  id="req_bus_id" type="hidden" value="{{ ctrl.bus_id }}">
-	{% endfor %}
-	<br align="center"><button onclick="return location.href = '/'">Главный экран</button>
+	{#% endfor %#}
+<button onclick="return location.href = '/'">Главный экран</button>
 
 
 </body></html>
