@@ -1,0 +1,20 @@
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+July 08, 2016 - 20:38:05
+Django version 1.9.5, using settings 'iface.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+July 08, 2016 - 13:47:37
+Django version 1.9.5, using settings 'iface.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
