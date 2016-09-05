@@ -1,10 +1,6 @@
 body {
   background-color: #000000;
   color: white;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none
 }
 h1 {
 		font-size: 24pt;
@@ -15,21 +11,21 @@ h1 {
   font-family: Arial;
 }
 .ctrl_name {
-  font-size: 20pt;
+  font-size: 24pt;
   font-family: Arial;
 }
 .params {
   background-color: white;
   color: black;
-  font-size: 12pt;
+  font-size: 16pt;
   font-family: Arial;
   width: 50%;
 }
 BUTTON {
-  height: 60px;
+  height: 70px;
   width: auto;
 }
 INPUT {
-  height: 60px;
-  font-size: 14pt;
+  height: 70px;
+  font-size: 16pt;
 }
