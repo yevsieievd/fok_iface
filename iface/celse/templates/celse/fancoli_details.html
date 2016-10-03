@@ -1,7 +1,7 @@
 <div align="justify">
 
 	<span align="right">
-				<button id="params_bt" title="ON" align="right"> <h3>Параметры</h3></button>
+				<button id="params_bt" title="Параметры" align="right"> <h3>Параметры</h3></button>
 				<script type="text/javascript">
 					document.getElementById('params_bt').onclick = function () {
 						var xhr = new XMLHttpRequest();
@@ -9,7 +9,7 @@
 						document.location.href = "/ctrl_internals/?" + params;
 					}
 				</script>
-				<button id="service_bt" title="AUTO" align="right"><h3>Сервис</h3></button>
+				<button id="service_bt" title="Сервис" align="right"><h3>Сервис</h3></button>
 				<script type="text/javascript">
 					document.getElementById('service_bt').onclick = function () {
 						var xhr = new XMLHttpRequest();
@@ -47,30 +47,34 @@
 		<span align="right">
 		 {% for par in param %}
 				{% ifequal par.addr 0%}
-					<h1>Уставка температуры:</h1>
-					<table>
+		<!--			<h1 align="left">Уставка температуры:</h1> -->
+					<table cellpadding="0" cellspacing="20" border="0">
+		<!--				<caption><h1 align="left">Уставка температуры:</h1></caption>-->
 						<tr>
+							<td>
+								<h1 align="left">Уставка температуры:</h1>
+							</td>
 							<td>
 								<input style="background-color:#FFFFFF; hight=20pt;" id="setpoint_val"  type="text" value="{{par.value}}">
 							</td>
 							<td>
-								<button id="inc_val_bt" title="+"><h1>+</h1></button>
+								<button style="width:75px" id="inc_val_bt" title="+"><h1>+</h1></button>
 							</td>
 							<td>
-								<button id="dec_val_bt" title="-"><h1>-</h1></button>
+								<button style="width:75px" id="dec_val_bt" title="-"><h1>-</h1></button>
 							</td>
 							<td>
-								<button id="set_val_bt" title="SET"><h1>Сохр.</h1></button>
+								<button id="set_val_bt" title="Сохр."><h1>Сохр.</h1></button>
 							</td>
 						</tr>
 					</table>
 
-
 				{% endifequal %}
 
-
 				{% ifequal par.addr 7%}
-					<h1>Текущая температура: {{par.value}} C<sup>0</sup></h1>
+					<h1 align="left">Текущая температура:
+											{{par.value}}
+						C<sup>0</sup></h1>
 
 				{% endifequal %}
 		{% endfor %}
@@ -80,23 +84,29 @@
 	{#%endif%#}
 
 	{% if ctrl_mode == 2%}
-		<TABLE width="40%" cellpadding="0" cellspacing="0" border="0">
+		<TABLE width="40%" cellpadding="0" cellspacing="20" border="0">
 			<TR>
 			<TD><H1>Текущая скорость: </H1></TD>
 			<TD>
 			<button id="speed1" title="1"
 				{% for par in param %}
 					{% if par.addr == 10 and par.value == 1%}
-						style="background-color:#808080"
+						style="background-color:#808080;width:75px"
+					{% endif %}
+					{% if par.addr == 10 and par.value != 1%}
+						style="width:75px"
 					{% endif %}
 				{% endfor %}
 			><h1>1</h1></button>
 			</TD>
 			<TD>
-			<button id="speed2" title="2"
+			<button style="width:75px" id="speed2" title="2"
 				{% for par in param %}
 					{% if par.addr == 10 and par.value == 2%}
-						style="background-color:#808080"
+						style="background-color:#808080;width:75px"
+					{% endif %}
+					{% if par.addr == 10 and par.value != 2%}
+						style="width:75px"
 					{% endif %}
 				{% endfor %}
 			><h1>2</h1></button>
@@ -105,7 +115,10 @@
 			<button id="speed3" title="3"
 				{% for par in param %}
 					{% if par.addr == 10 and par.value == 3%}
-						style="background-color:#808080"
+						style="background-color:#808080;width:75px"
+					{% endif %}
+					{% if par.addr == 10 and par.value != 3%}
+						style="width:75px"
 					{% endif %}
 				{% endfor %}
 			><h1>3</h1></button>

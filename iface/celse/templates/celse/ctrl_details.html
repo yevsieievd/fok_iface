@@ -49,6 +49,12 @@
 		<input  id="req_bus_id" type="hidden" value="{{ ctrl.bus_id }}">
 	{#% endfor %#}
 <button onclick="return location.href = '/'">Главный экран</button>
+<script type="text/javascript">
+	function fresh() {
+		location.reload();
+	}
+	setInterval("fresh()",5000);
+</script>
 
 
 </body></html>
